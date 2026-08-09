@@ -1,5 +1,4 @@
-
-`Accident_ID,Time_of_Day,Number_of_Accidents,Severity,Cause
+Accident_ID,Time_of_Day,Number_of_Accidents,Severity,Cause
 1,6,3,Minor,Speeding
 2,7,5,Major,Drunk Driving
 3,4,7,Minor,Distracted Drving
