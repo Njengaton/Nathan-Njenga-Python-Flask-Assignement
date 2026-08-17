@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accident Statistics</title>
+    </head>
+    <body>
+        <h1>Road Accident Statistics</h1>
+        <table border="1">
+            <tr>
+                {% for column in data[0].keys()%}
+                <th>{{column}}</th>
+                {% endfor%}
+            </tr>
+            {% for row in data %}
+            <tr>
+                {% for value in row.values()%}
+                <td>{{value}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+    </html>
