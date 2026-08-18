@@ -1,23 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Accident Statistics</title>
-    </head>
-    <body>
-        <h1>Road Accident Statistics</h1>
-        <table border="1">
+{% extends"base.html" %}
+{% block title %}
+Accident Data
+{% endblock %}
+<h1>Road Accident Statisitics</h1>
+<div class="card">
+    <h2>Accident data</h2>
+    {% if data is defined and data|length>0 %}
+    <table border="1" cellpadding="10" cellspacing="0" width="100%">
+        <thread>
             <tr>
-                {% for column in data[0].keys()%}
+                {% for column in data[0].keys() %}
                 <th>{{column}}</th>
-                {% endfor%}
+                {% endfor %}
             </tr>
+        </thread>
+        <tbody>
             {% for row in data %}
             <tr>
-                {% for value in row.values()%}
+                {% for value in row.values() %}
                 <td>{{value}}</td>
                 {% endfor %}
             </tr>
             {% endfor %}
-        </table>
-    </body>
-    </html>
+        </tbody>
+    </table>
+    {% else %}
+    <p>No accident data is currently available.</p>
+    {% endif %}
+</div>
+<a href="{{url_for('statistics')}}">
+    View Accident Statistics &amp;Charts
+</a>
+{% endblock %}

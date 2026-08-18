@@ -4,19 +4,17 @@
         <meta charaset="UTF-8">
         <meta name="viewport" content="width=device-width,
         initial-scale=1.0">
-        <title>{% block title%}Road Accident Statistics{% endblock%}</title>
+        <title>{% block title %}Accident Statistics{% endblock %}</title>
         <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
         </head>
         <body>
-            <header>
-                <h1>Road Accident Staistics</h1>
-            </header>
             <nav>
-                <a href="/">Home</a>
+                <a href="{{url_for('home')}}">Home</a>
+                <a href="{{url_for('statistics')}}">Statistics</a>
             </nav>
-            <main>
-                {% block content%}
+            <div class="container">
+                {% block content %}
                 {% endblock %}
-            </main>
+            </div>
         </body>
-</html>
+        </html>
