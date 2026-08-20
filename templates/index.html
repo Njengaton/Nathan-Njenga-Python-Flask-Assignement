@@ -1,34 +1,22 @@
-{% extends"base.html" %}
-{% block title %}
-Accident Data
-{% endblock %}
-<h1>Road Accident Statisitics</h1>
-<div class="card">
-    <h2>Accident data</h2>
-    {% if data is defined and data|length>0 %}
-    <table border="1" cellpadding="10" cellspacing="0" width="100%">
-        <thread>
-            <tr>
-                {% for column in data[0].keys() %}
-                <th>{{column}}</th>
-                {% endfor %}
-            </tr>
-        </thread>
-        <tbody>
-            {% for row in data %}
-            <tr>
-                {% for value in row.values() %}
-                <td>{{value}}</td>
-                {% endfor %}
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    {% else %}
-    <p>No accident data is currently available.</p>
-    {% endif %}
-</div>
-<a href="{{url_for('statistics')}}">
-    View Accident Statistics &amp;Charts
-</a>
+{% extends "base.html"%}
+{% block content%}
+<h1>Accident Statistics</h1>
+<table border="1">
+    <tr>
+        <th>Accident_ID</th>
+        <th>Time_of_Day</th>
+        <th>Number_of_Accidents</th>
+        <th>Severity</th>
+        <th>Cause</th>
+    </tr>
+    {% for row in data %}
+    <tr>
+        <td>{{row["Accident_ID"]}}</td>
+        <td>{{row["Time_of_Day"]}}</td>
+        <td>{{row["Number_of_Accidents"]}}</td>
+        <td>{{row["Severity"]}}</td>
+        <td>{{row["Cause"]}}</td>
+    </tr>
+    {% endfor %}
+</table>
 {% endblock %}
